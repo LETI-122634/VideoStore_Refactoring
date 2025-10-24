@@ -1,22 +1,24 @@
 package ficha3.v7;
 
 public class Movie {
+    public enum Code { REGULAR, NEW_RELEASE, CHILDRENS }
+
     private String _title;
     private Price _price; // substitui o enum behavior por um objeto de estado
 
-    public Movie(String title, Price.Code priceCode) {
+    public Movie(String title, Code priceCode) {
         _title = title;
         setPriceCode(priceCode);
     }
 
-    public Price.Code getPriceCode() {
-        if (_price instanceof RegularPrice) return Price.Code.REGULAR;
-        if (_price instanceof NewReleasePrice) return Price.Code.NEW_RELEASE;
-        if (_price instanceof ChildrenPrice) return Price.Code.CHILDRENS;
+    public Code getPriceCode() {
+        if (_price instanceof RegularPrice) return Code.REGULAR;
+        if (_price instanceof NewReleasePrice) return Code.NEW_RELEASE;
+        if (_price instanceof ChildrenPrice) return Code.CHILDRENS;
         throw new IllegalStateException("Unknown Price type");
     }
 
-    public void setPriceCode(Price.Code priceCode) {
+    public void setPriceCode(Code priceCode) {
         switch (priceCode) {
             case REGULAR:
                 _price = new RegularPrice();

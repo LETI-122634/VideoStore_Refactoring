@@ -1,4 +1,4 @@
-package ficha3.v7;
+package ficha3.v8;
 
 /***
 
@@ -12,9 +12,9 @@ public abstract class Main
      @param args***/
     public static void main(String[] args){
         Customer who = new Customer("Barack Obama");
-        Movie m1 = new Movie("Life of Amalia", Movie.Code.REGULAR);
-        Movie m2 = new Movie("Peter Pan", Movie.Code.CHILDRENS);
-        Movie m3 = new Movie("Donna del Lago", Movie.Code.NEW_RELEASE);
+        Movie m1 = new Movie("Life of Amalia", new RegularPrice());
+        Movie m2 = new Movie("Peter Pan", new ChildrenPrice());
+        Movie m3 = new Movie("Donna del Lago", new NewReleasePrice());
 
         who.addRental(new Rental(m1, 1));
         who.addRental(new Rental(m2, 2));
